@@ -1,0 +1,55 @@
+﻿
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <form class="form-horizontal">
+            <input type="hidden" ng-model="clickedCustomer.CustomerId" />
+            <input type="hidden" ng-model="clickedCustomer.ImageName" />
+            <div class="col-md-12 mx-auto">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.FirstName" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Last Name</label>
+
+                    <input type="text" class="form-control" ng-model="clickedCustomer.LastName" readonly/>
+
+                </div>
+                <div class="form-group position-relative mb-3">
+                    <label class="form-label"> Date of Birth</label>
+                    <input type="date" class="form-control" ng-model="DateOfBirth" readonly/>
+
+
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Email </label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.Email" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.City" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.Address" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Post Code</label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.PostCode" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" ng-model="clickedCustomer.PhoneNumber" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label mb-3">Image</label>
+                    <img ng-src="/images/customer_images/{{clickedCustomer.ImageName}}" style="height:90px!important; width:auto!important;" class="form-control change_edit mb-3" />
+                   
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+

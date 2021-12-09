@@ -1,0 +1,157 @@
+﻿@model IEnumerable<CustomerViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/CustomerAngularJS/module.js"></script>
+<script src="~/CustomerAngularJS/service.js"></script>
+<script src="~/CustomerAngularJS/controller.js"></script>
+<div>
+    <p>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#CreateModal">Create New</button>
+    </p>
+    @*<form asp-action="Index" method="get">
+        <div class="btnSearch">
+            <p>
+                Find by name: <input type="text" name="SearchString" value="@ViewBag.CurrentFilter" />
+                <input type="submit" value="Search" class="btn btn-info" /> &nbsp;&nbsp;
+                <a asp-action="Index" class="btn btn-outline-secondary">Back to Full List</a>
+            </p>
+        </div>
+    </form>*@
+</div>
+<div ng-app="customerModule" ng-controller="customerController">
+    <table class="table table-bordered table-striped list_table">
+        <thead>
+            <tr>
+                <th>
+                    SL
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Date of Birth
+                </th>
+
+                <th>
+                    Image
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Post Code
+                </th>
+                <th>
+                    Phone No
+                </th>
+
+                <th class="text-center tbl_action">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="item in customers">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{item.FirstName}}
+                </td>
+                <td>
+                    {{item.LastName}}
+                </td>
+
+                <td>
+                    {{item.DateOfBirth | date:'shortDate'}}
+                </td>
+                <td class="text-center">
+                    <img ng-src="/images/customer_images/{{item.ImageName}}" + item.I" width="70" height="80" asp-append-version="true" />
+                </td>
+                <td>
+                    {{item.Address}}
+                </td>
+                <td>
+
+                    {{item.Email}}
+                </td>
+                <td>
+                    {{item.City}}
+                </td>
+                <td>
+                    {{item.PostCode}}
+                </td>
+                <td>
+                    {{item.PhoneNumber}}
+                </td>
+                <td>
+                    <input type="submit" data-bs-toggle="modal" data-bs-target="#EditModal" ng-click="SelectedCustomer(item)" class="btn btn-success" value="Edit">
+                    <input type="submit" ng-click="DeleteCustomer(item.CustomerId)" onclick="return confirm('Are You Sure to Delete')" class="btn btn-outline-danger" value="Delete">
+                    <input type="submit" data-bs-toggle="modal" data-bs-target="#detailsModal" ng-click="SelectedCustomer(item)" class="btn btn-outline-dark" value="Details">
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @await Html.PartialAsync("_Create", new CustomerViewModel())
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header px-md-5">
+                    <h3 class="modal-title" id="detailsModalLabel">Update Customer</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-md-5">
+
+                    <partial name="~/Views/Customer/_Edit.cshtml" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header px-md-5">
+                    <h3 class="modal-title" id="detailsModalLabel">Customer Details</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-md-5">
+
+                    <partial name="~/Views/Customer/_Details.cshtml" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="itemsDiv">
+</div>
+@*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page }),
+new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    ContainerDivClasses = new[] { "navication" },
+    LiElementClasses = new[] { "page-item" },
+    PageClasses = new[] { "page-link" },
+})*@
+
+

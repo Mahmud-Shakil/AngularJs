@@ -1,0 +1,118 @@
+﻿
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <form class="form-horizontal">
+            <input type="hidden" ng-model="clickedVehicel.CustomerId" />
+            <input type="hidden" ng-model="clickedVehicel.ImageName" />
+            <div class="col-md-12 mx-auto">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Model </label>
+                    <input type="text" class="form-control" ng-model="clickedVehicel.Model" readonly/>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Manufacturer</label>
+
+                    <input type="text" class="form-control" ng-model="clickedVehicel.Manufacturer" readonly/>
+
+                </div>
+                <div class="form-group position-relative mb-3">
+                    <label class="form-label"> Registration Number</label>
+
+                    <input type="text" class="form-control " ng-model="clickedVehicel.RegistrationNumber" readonly/>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Email </label>
+                    <input type="text" class="form-control" ng-model="clickedVehicel.DailyHireRate" readonly/>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label mb-3">Image</label>
+                    <img ng-src="/images/vehicel_images/{{clickedVehicel.ImageName}}" style="height:90px!important; width:auto!important;" class="form-control change_edit mb-3" />
+                   
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@*<script>
+
+    var images = [];
+    // this function will select images
+    function image_select() {
+        var image = document.getElementById('Edit_Photos').files;
+        for (i = 0; i < image.length; i++) {
+            if (check_duplicate(image[i].name)) {
+                images.push({
+                    "name": image[i].name,
+                    "url": URL.createObjectURL(image[i]),
+                    "file": image[i],
+                })
+            } else {
+                alert(image[i].name + " is already added to the list");
+            }
+        }
+
+        /*document.getElementById('form').reset();*/
+        document.getElementById('edit_container').innerHTML = image_show();
+    }
+    // this function will show images in the DOM
+    function image_show() {
+        var image = "";
+        images.forEach((i) => {
+            image += `<div class="image_container d-flex justify-content-center position-relative">
+                   <img src="`+ i.url + `" alt="Image">
+                   <span class="position-absolute" onclick="delete_image(`+ images.indexOf(i) + `)">&times;</span>
+              </div>`;
+        })
+        return image;
+    }
+
+    // this function will get all images from the array
+    function get_image_data() {
+        var form = new FormData()
+        for (let index = 0; index < images.length; index++) {
+            form.append("file[" + index + "]", images[index]['file']);
+        }
+        return form;
+    }
+
+    // this function will delete a specific image from the container
+    function delete_image(index) {
+        var attachments = document.getElementById('Edit_Photos').files;
+        var fileBuffer = new DataTransfer();
+
+        // append the file list to an array iteratively
+        for (let i = 0; i < attachments.length; i++) {
+            // Exclude file in specified index
+            if (index !== i)
+                fileBuffer.items.add(attachments[i]);
+        }
+
+        // Assign buffer to file input
+        document.getElementById("Edit_Photos").files = fileBuffer.files;
+
+        images.splice(index, 1);
+        document.getElementById('edit_container').innerHTML = image_show();
+    }
+
+    // this function will check duplicate images
+    function check_duplicate(name) {
+        var image = true;
+        if (images.length > 0) {
+            for (e = 0; e < images.length; e++) {
+                if (images[e].name == name) {
+                    image = false;
+                    break;
+                }
+            }
+        }
+        return image;
+    }
+    function confirmation() {
+        return confirm('Do you want to Delete this images?');
+    };
+</script>*@
+
+

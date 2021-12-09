@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/01/2021 18:13:22" ReportInfo.Modified="12/02/2021 03:37:50" ReportInfo.CreatorVersion="2021.4.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqV5n69Z/jZBbOIkct1sJuR9sEhuNUmoekWeV5E8ZbPYnKClMOhltnnQUG/Q00xmEbCOK3/P7TW6NyBu0/r7ccHS04ftFlcUh679+HCM1ULx88+aXMhxN1k8SiiXJS6eaGqlxnL3JyuZXlS/P9e67gd31JvFkdYP5tZqYPCEKk3DyEtD0Tm3Nc75Oy8p6uzMBtuEdNlQrau4XC8D9PM+ZBsA==">
+      <TableDataSource Name="Customers" DataType="System.Int32" Enabled="true" TableName="Customers">
+        <Column Name="CustomerId" DataType="System.Int32"/>
+        <Column Name="FirstName" DataType="System.String"/>
+        <Column Name="LastName" DataType="System.String"/>
+        <Column Name="DateOfBirth" DataType="System.DateTime"/>
+        <Column Name="Address" DataType="System.String"/>
+        <Column Name="City" DataType="System.String"/>
+        <Column Name="PostCode" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="PhoneNumber" DataType="System.String"/>
+        <Column Name="ImageFullPath" DataType="System.String"/>
+        <Column Name="ImageName" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="274.05">
+      <PictureObject Name="Picture2" Left="56.7" Top="37.8" Width="160.65" Height="170.1" ImageLocation="D:\Logos\car-led-lights-realistic-composition-with-view-night-road-silhouettes-automobile-traffic-lights-illustration\28531.jpg" ImageFormat="Jpeg"/>
+      <TextObject Name="Text1" Left="198.45" Top="85.05" Width="349.65" Height="28.35" Text="Car Rental Management" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 18pt, style=Bold" TextFill.Color="Firebrick"/>
+      <TextObject Name="Text2" Left="264.6" Top="122.85" Width="226.8" Height="18.9" Text="Motijheel, City Center." HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text3" Left="567" Top="189" Width="122.85" Height="66.15" Text="Print Date&#13;&#10;[Date]" HorzAlign="Center" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text19" Left="302.4" Top="160.65" Width="179.55" Height="18.9" Text="Phone: 01682378172" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="278.05" Width="718.2" Height="359.1" DataSource="Customers">
+      <PictureObject Name="Picture1" Left="463.05" Top="141.75" Width="198.45" Height="198.45" DataColumn="Customers.ImageFullPath"/>
+      <TextObject Name="Text5" Top="9.45" Width="718.2" Height="47.25" Fill.Color="Gainsboro" Text="    [Customers.FirstName] [Customers.LastName]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold" TextFill.Color="MidnightBlue"/>
+      <TextObject Name="Text6" Left="207.9" Top="66.15" Width="207.9" Height="28.35" Text="[Customers.DateOfBirth]" Format="Date" Format.Format="MMMM dd, yyyy" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text7" Left="207.9" Top="113.4" Width="207.9" Height="28.35" Text="[Customers.Address]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text8" Left="207.9" Top="151.2" Width="207.9" Height="37.8" Text="[Customers.City]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text9" Left="207.9" Top="198.45" Width="207.9" Height="37.8" Text="[Customers.PostCode]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text10" Left="207.9" Top="255.15" Width="207.9" Height="37.8" Text="[Customers.Email]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text11" Left="207.9" Top="311.85" Width="207.9" Height="28.35" Text="[Customers.PhoneNumber]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text12" Left="37.8" Top="66.15" Width="160.65" Height="28.35" Text="Date of Birth&#13;&#10;" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text13" Left="37.8" Top="113.4" Width="160.65" Height="28.35" Text="Address&#13;&#10;" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text14" Left="37.8" Top="160.65" Width="160.65" Height="28.35" Text="City&#13;&#10;&#13;&#10;" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text15" Left="37.8" Top="198.45" Width="160.65" Height="37.8" Text="Post Code" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text16" Left="37.8" Top="264.6" Width="160.65" Height="37.8" Text="Email&#13;&#10;&#13;&#10;" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text17" Left="37.8" Top="311.85" Width="160.65" Height="28.35" Text="Phone No" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="641.15" Width="718.2" Height="37.8">
+      <TextObject Name="Text18" Left="585.9" Width="122.85" Height="28.35" Text="[PageN]" VertAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,45 @@
+﻿
+<div class="row">
+    <div class="col-md-12 mx-auto">
+        <form class="form-horizontal">
+            <input type="hidden" ng-model="clickedVehicel.CustomerId" />
+            <input type="hidden" ng-model="clickedVehicel.ImageName" />
+            <div class="col-md-12 mx-auto">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Model </label>
+                    <input type="text" class="form-control" ng-model="clickedVehicel.Model" />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Manufacturer</label>
+
+                    <input type="text" class="form-control" ng-model="clickedVehicel.Manufacturer" />
+
+                </div>
+                <div class="form-group position-relative mb-3">
+                    <label class="form-label"> Registration Number</label>
+
+                    <input type="text" class="form-control " ng-model="clickedVehicel.RegistrationNumber" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Email </label>
+                    <input type="text" class="form-control" ng-model="clickedVehicel.DailyHireRate" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label mb-3">Image</label>
+                    <img ng-src="/images/vehicel_images/{{clickedVehicel.ImageName}}" style="height:90px!important; width:auto!important;" class="form-control change_edit mb-3" />
+                    <input class="form-control change_image" type="file" ngf-select="UploadFiles($files)" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+
+                    <button type="submit" class="btn btn-success clear-photo" data-bs-dismiss="modal" ng-click="UpdateVehicel()">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/CustomJS/JavaScript.js"></script>
